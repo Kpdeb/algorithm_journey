@@ -1,1 +1,5 @@
-
+#inlcude <stdio.h>
+#include <stdlib.h>
+#inlude <limits.h>
+void dijkstra (int **graph ,int v, int src )
+int *dist=(int*)malloc (v*) 
