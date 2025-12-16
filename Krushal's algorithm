@@ -37,4 +37,32 @@ void sortEdges(int e) {
         }
     }
 }
+/* Kruskal's Algorithm */
+void kruskal(int v, int e) {
+    int totalCost = 0;
+    int count = 0;
+
+    /* Initialize parent array */
+    for (int i = 0; i < v; i++)
+        parent[i] = i;
+
+    sortEdges(e);
+
+    printf("\nEdges in Minimum Spanning Tree:\n");
+
+    for (int i = 0; i < e && count < v - 1; i++) {
+        int u = edges[i].u;
+        int v1 = edges[i].v;
+        int w = edges[i].w;
+
+        if (find(u) != find(v1)) {
+            unite(u, v1);
+            printf("%d -- %d == %d\n", u, v1, w);
+            totalCost += w;
+            count++;
+        }
+    }
+
+    printf("Total cost of MST = %d\n", totalCost);
+}
 
