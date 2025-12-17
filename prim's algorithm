@@ -26,3 +26,31 @@ int main() {
     selected[0] = 1;
 
     printf("\nEdges in Minimum Spanning Tree:\n");
+
+    while (edges < n - 1) {
+        min = INT_MAX;
+
+        for (int i = 0; i < n; i++) {
+            if (selected[i]) {
+                for (int j = 0; j < n; j++) {
+                    if (!selected[j] && graph[i][j]) {
+                        if (min > graph[i][j]) {
+                            min = graph[i][j];
+                            x = i;
+                            y = j;
+                        }
+                    }
+                }
+            }
+        }
+
+        printf("%d -- %d  cost: %d\n", x, y, graph[x][y]);
+        totalCost += graph[x][y];
+        selected[y] = 1;
+        edges++;
+    }
+
+    printf("\nTotal cost of MST = %d\n", totalCost);
+
+    return 0;
+}
