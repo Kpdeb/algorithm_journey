@@ -34,3 +34,26 @@ int tsp(int mask, int pos) {
     dp[mask][pos] = ans;
     return ans;
 }
+int main() {
+    printf("Enter number of cities: ");
+    scanf("%d", &n);
+
+    printf("Enter distance matrix:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &dist[i][j]);
+        }
+    }
+
+    // Initialize dp array
+    for (int i = 0; i < (1 << n); i++) {
+        for (int j = 0; j < n; j++) {
+            dp[i][j] = -1;
+        }
+    }
+
+    int minCost = tsp(1, 0);  // Start from city 0
+    printf("Minimum travelling cost: %d\n", minCost);
+
+    return 0;
+}
