@@ -21,4 +21,27 @@ i++;
 }
 }
 }
+//kmp search function 
+void KMPSearch(chae text[],char pattern[]){
+int n =strlen (text);
+int m =strlen ([attern);
 
+int lps[m];
+computerLPS(pattern,m,lps);
+
+int i=0;
+int j=0;
+
+while (i<n){
+if(text[i]==pattern[j]){
+i++;
+j++;
+}
+if (j==m){
+printf ("pattern found at index %d\n",i-j);
+j=lps[j-1];
+else 
+i++;
+}
+}
+}
