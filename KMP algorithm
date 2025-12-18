@@ -45,3 +45,16 @@ i++;
 }
 }
 }
+
+int main ()
+{
+char text[100];
+char pattern[50];
+
+printf ("enter the pattern :");
+gets(pattern);
+
+KMPSearch (text,pattern);
+
+return 0;
+}
