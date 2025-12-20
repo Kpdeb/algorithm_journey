@@ -1,1 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
 
+#define d 256      // number of characters
+#define q 101      // prime number
+
+void rabinKarp(char text[], char pattern[]) {
+    int n = strlen(text);
+    int m = strlen(pattern);
+    int i, j;
+    int p = 0;  // hash value for pattern
+    int t = 0;  // hash value for text
+    int h = 1;
