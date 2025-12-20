@@ -20,3 +20,16 @@ for (i = 0; i < m - 1; i++)
         p = (d * p + pattern[i]) % q;
         t = (d * t + text[i]) % q;
     }
+
+    // Slide the pattern over text
+    for (i = 0; i <= n - m; i++) {
+
+        // If hash values match, check characters
+        if (p == t) {
+            for (j = 0; j < m; j++) {
+                if (text[i + j] != pattern[j])
+                    break;
+            }
+            if (j == m)
+                printf("Pattern found at index %d\n", i);
+        }
