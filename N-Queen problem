@@ -84,3 +84,12 @@ bool solveNQueen(int row) {
     }
     return false;
 }
+int main() {
+    if (solveNQueen(0)) {
+        printf("Solution exists:\n");
+        printBoard();
+    } else {
+        printf("No solution exists\n");
+    }
+    return 0;
+}
