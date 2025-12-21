@@ -66,3 +66,21 @@ bool isSafe(int row, int col) {
 
     return true;
 }
+// Solve N-Queen using backtracking
+bool solveNQueen(int row) {
+    if (row == N)
+        return true;
+
+    for (int col = 0; col < N; col++) {
+        if (isSafe(row, col)) {
+            board[row][col] = 1;
+
+            if (solveNQueen(row + 1))
+                return true;
+
+            // Backtrack
+            board[row][col] = 0;
+        }
+    }
+    return false;
+}
