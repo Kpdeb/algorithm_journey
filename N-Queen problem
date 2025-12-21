@@ -1,1 +1,17 @@
+#include <stdio.h>
+#include <stdbool.h>
 
+#define N 8   // Change this value for different board sizes
+
+int board[N][N];
+
+// Function to print the board
+void printBoard() {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d ", board[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
