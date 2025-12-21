@@ -15,3 +15,21 @@ void printBoard() {
     }
     printf("\n");
 }
+void placeQueens(int row, vector<vector<int>>& mat, vector<vector<int>>&result) {
+    int n = mat.size();
+
+    // base case: If all queens are placed
+    if(row == n) {
+        
+        // store current solution
+        vector<int> ans;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(mat[i][j]){
+                    ans.push_back(j + 1);
+                }
+            }
+        }
+        result.push_back(ans);
+        return;
+    }
