@@ -1,1 +1,16 @@
+#include <stdio.h>
+#include <limits.h>
+
+struct Edge {
+    int src, dest, weight ;
+};
+
+struct Graph {
+     int V,E;
+     struct Edge edge[20];
+};
+void bellmanFord(struct Graph* graph,int src ){
+     int V= graph->V;
+     int E= graph->E;
+     int dist[V];
 
