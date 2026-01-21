@@ -20,3 +20,6 @@ void sortItems(struct Item items[], int n) {
         }
     }
 }
+float fractionalKnapsack(struct Item items[], int n, int capacity) {
+    float totalValue = 0.0;
+    int remainingCapacity = capacity;
