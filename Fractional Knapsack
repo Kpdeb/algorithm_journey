@@ -48,3 +48,15 @@ struct Item items[n];
         scanf("%d %d", &items[i].value, &items[i].weight);
         items[i].ratio = (float)items[i].value / items[i].weight;
     }
+printf("Enter knapsack capacity: ");
+    scanf("%d", &capacity);
+
+    // Sort items based on ratio
+    sortItems(items, n);
+
+    float maxValue = fractionalKnapsack(items, n, capacity);
+
+    printf("Maximum value in knapsack = %.2f\n", maxValue);
+
+    return 0;
+}
