@@ -1,1 +1,9 @@
+CODE :
+#include <stdio.h>
 
+int queue[100], front = 0, rear = -1;
+int visited[7];
+
+void bfs(int graph[7][7], int start) {
+    queue[++rear] = start;
+    visited[start] = 1;
