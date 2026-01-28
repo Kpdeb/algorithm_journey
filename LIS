@@ -14,3 +14,16 @@ int LIS(int arr[], int n) {
         for (int j = 0; j < i; j++)
             if (arr[i] > arr[j])
                 dp[i] = max(dp[i], dp[j] + 1);
+
+    int ans = 0;
+    for (int i = 0; i < n; i++)
+        ans = max(ans, dp[i]);
+
+    return ans;
+}
+
+int main() {
+    int arr[] = {10, 22, 9, 33, 21, 50, 41, 60};
+    printf("LIS length = %d", LIS(arr, 8));
+    return 0;
+}
