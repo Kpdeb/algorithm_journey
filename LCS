@@ -19,3 +19,10 @@ int lcs(char X[], char Y[], int m, int n) {
         }
     }
     return dp[m][n];
+int main() {
+    char X[] = "AGGTAB";
+    char Y[] = "GXTXAYB";
+
+    printf("LCS length = %d", lcs(X, Y, strlen(X), strlen(Y)));
+    return 0;
+}
