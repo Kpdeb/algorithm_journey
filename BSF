@@ -7,3 +7,10 @@ int visited[7];
 void bfs(int graph[7][7], int start) {
     queue[++rear] = start;
     visited[start] = 1;
+while (front <= rear) {
+        int v = queue[front++];
+        printf("%d ", v);
+
+        for (int i = 0; i < 7; i++) {
+            if (graph[v][i] && !visited[i]) {
+                queue[++rear] = i;
