@@ -1,1 +1,71 @@
-KNN Algorithm
+KNN Algorithm code
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+using namespace std;
+
+struct DataPoint {
+    double distance;
+    int label;
+};
+
+
+double euclideanDistance(vector<double> &a, vector<double> &b) {
+    double sum = 0;
+    for (int i = 0; i < a.size(); i++) {
+        sum += pow(a[i] - b[i], 2);
+    }
+    return sqrt(sum);
+}
+
+int main() {
+    
+    vector<vector<double>> X = {
+        {1, 2},
+        {2, 3},
+        {3, 1},
+        {6, 5},
+        {7, 7},
+        {8, 6}
+    };
+
+    // Corresponding class labels
+    vector<int> y = {0, 0, 0, 1, 1, 1};
+
+
+    vector<double> testPoint = {5, 5};
+
+    int K = 3;
+    vector<DataPoint> distances;
+
+    
+    for (int i = 0; i < X.size(); i++) {
+        DataPoint dp;
+        dp.distance = euclideanDistance(X[i], testPoint);
+        dp.label = y[i];
+        distances.push_back(dp);
+    }
+
+
+    sort(distances.begin(), distances.end(),
+         [](DataPoint a, DataPoint b) {
+             return a.distance < b.distance;
+         });
+
+    // Majority voting
+    int count0 = 0, count1 = 0;
+    for (int i = 0; i < K; i++) {
+        if (distances[i].label == 0)
+            count0++;
+        else
+            count1++;
+    }
+
+    // Prediction
+    int prediction = (count0 > count1) ? 0 : 1;
+
+    cout << "Predicted Class: " << prediction << endl;
+
+    return 0;
+}
