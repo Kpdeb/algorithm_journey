@@ -50,6 +50,20 @@ bool isPrime(long long n, int k) {
     for (int i = 0; i < k; i++)
         if (!millerTest(d, n))
             return false;
+int main() {
+    long long n;
+    int k = 5; // Number of iterations (accuracy level)
+
+    cout << "Enter number to test: ";
+    cin >> n;
+
+    if (isPrime(n, k))
+        cout << n << " is Probably Prime\n";
+    else
+        cout << n << " is Composite\n";
+
+    return 0;
+}
 
     return true;
 }
