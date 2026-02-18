@@ -46,3 +46,12 @@ if (j == m)
         }
     }
 }
+int main() {
+    string text = "ABABDABACDABABCABAB";
+    string pattern = "ABABC";
+    int q = 101;   // A prime number
+
+    rabinKarp(text, pattern, q);
+
+    return 0;
+}
