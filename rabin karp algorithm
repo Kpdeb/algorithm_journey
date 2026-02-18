@@ -32,3 +32,17 @@ void rabinKarp(string text, string pattern, int q) {
                 if (text[i + j] != pattern[j])
                     break;
             }
+if (j == m)
+                cout << "Pattern found at index " << i << endl;
+        }
+
+        // Calculate hash for next window
+        if (i < n - m) {
+            t = (d * (t - text[i] * h) + text[i + m]) % q;
+
+            // Convert negative value to positive
+            if (t < 0)
+                t = t + q;
+        }
+    }
+}
