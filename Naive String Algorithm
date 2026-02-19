@@ -12,3 +12,17 @@ for (j = 0; j < m; j++) {
                 break;
             }
         }
+if (j == m) {
+            printf("Pattern found at index %d\n", i);
+        }
+    }
+}
+
+int main() {
+    char text[] = "AABAACAADAABAABA";
+    char pattern[] = "AABA";
+
+    naiveStringMatch(text, pattern);
+
+    return 0;
+}
