@@ -1,1 +1,17 @@
+#include <stdio.h>
+#include <limits.h>
 
+#define V 5      // Number of vertices
+#define E 8      // Number of edges
+
+// Structure to represent an edge
+struct Edge {
+    int src, dest, weight;
+};
+
+void bellmanFord(struct Edge edge[], int source) {
+    int dist[V];
+    
+    // Step 1: Initialize distances
+    for (int i = 0; i < V; i++)
+        dist[i] = INT_MAX;
