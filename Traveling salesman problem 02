@@ -1,18 +1,4 @@
-#include <stdio.h>
-#include <limits.h>
 
-#define MAX 20   // maximum cities allowed
-
-int n;
-int dist[MAX][MAX];
-int dp[1 << MAX][MAX];
-
-/* TSP function */
-int tsp(int mask, int pos) {
-    // If all cities are visited
-    if (mask == (1 << n) - 1) {
-        return dist[pos][0];   // return to starting city
-    }
 
     // If already calculated
     if (dp[mask][pos] != -1)
