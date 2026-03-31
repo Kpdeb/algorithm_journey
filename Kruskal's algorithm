@@ -1,3 +1,21 @@
+#include <stdio.h>
+
+#define MAX 100
+
+/* Structure to represent an edge */
+struct Edge {
+    int u, v, w;
+};
+
+struct Edge edges[MAX];
+int parent[MAX];
+
+/* Find set (with path compression) */
+int find(int i) {
+    if (parent[i] != i)
+        parent[i] = find(parent[i]);
+    return parent[i];
+}
 
 /* Union of two sets */
 void unite(int x, int y) {
