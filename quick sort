@@ -1,4 +1,24 @@
+//quick sort algorithm 
+#include <stdio.h>
 
+// Function to swap two elements
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Partition function (pivot = first element)
+int partition(int arr[], int low, int high) {
+    int pivot = arr[low];  // first element as pivot
+    int i = low + 1;
+    int j = high;
+
+    while (1) {
+        // Move i to the right until an element > pivot is found
+        while (i <= high && arr[i] <= pivot) {
+            i++;
+        }
 
         // Move j to the left until an element < pivot is found
         while (j >= low && arr[j] > pivot) {
