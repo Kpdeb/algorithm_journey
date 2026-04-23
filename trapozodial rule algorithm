@@ -1,1 +1,51 @@
+#include <stdio.h>
 
+// Define the function to integrate
+float f(float x) {
+    return x * x;   // Example: f(x) = x^2
+}
+
+int main() {
+    int n, i;
+    float a, b, h;
+    
+    float x[100], y[100];   // arrays for xi and yi
+    float I = 0;
+
+    // Step 3: Read a, b, n
+    printf("Enter lower limit (a): ");
+    scanf("%f", &a);
+
+    printf("Enter upper limit (b): ");
+    scanf("%f", &b);
+
+    printf("Enter number of intervals (n): ");
+    scanf("%d", &n);
+
+    // Step 4: h = (b - a)/n
+    h = (b - a) / n;
+
+    // Step 5: x0 = a
+    x[0] = a;
+
+    // Step 6–11: Generate xi and yi
+    for(i = 0; i <= n; i++) {
+        if(i != 0)
+            x[i] = x[i-1] + h;
+
+        y[i] = f(x[i]);
+    }
+
+    // Step 12: I = 0
+    I = 0;
+
+    // Step 13–15: Apply trapezoidal formula
+    for(i = 0; i < n; i++) {
+        I = I + (h / 2) * (y[i] + y[i+1]);
+    }
+
+    // Step 16: Write I
+    printf("Approximate integral = %f\n", I);
+
+    return 0;
+}
