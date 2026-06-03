@@ -1,15 +1,3 @@
-KNN Algorithm code
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-using namespace std;
-
-struct DataPoint {
-    double distance;
-    int label;
-};
-
 
 double euclideanDistance(vector<double> &a, vector<double> &b) {
     double sum = 0;
